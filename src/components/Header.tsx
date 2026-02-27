@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Blindspot Audit™", href: "/audit", type: "page" },
   { name: "Research", href: "/research", type: "page" },
   { name: "Signals", href: "/signals", type: "page" },
-  { name: "About", href: "/#about", type: "anchor" },
+  { name: "About", href: "/about", type: "anchor" },
 ];
 
 const Header = () => {
