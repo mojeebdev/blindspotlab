@@ -58,11 +58,11 @@ const AboutSection = () => {
             </motion.p>
 
             <motion.p variants={itemVariants}>
-              We operate at the intersection of **AI Intelligence Engineering** and **Systems Theory**. Our mandate is to bridge the gap between "innovation" and "executable strategy" by identifying the architectural frictions that prevent exponential growth in Web3 and AI ecosystems.
+              We operate at the intersection of <b>AI Intelligence Engineering</b> and <b>Systems Theory</b>. Our mandate is to bridge the gap between "innovation" and "executable strategy" by identifying the architectural frictions that prevent exponential growth in Web3 and AI ecosystems.
             </motion.p>
 
             <motion.p variants={itemVariants}>
-              The **Blindspot Audit™** is our primary diagnostic protocol—a high-fidelity intelligence system that analyzes brand logic, market positioning, and growth architecture with clinical objectivity.
+              The <b>Blindspot Audit™</b> is our primary diagnostic protocol—a high-fidelity intelligence system that analyzes brand logic, market positioning, and growth architecture with clinical objectivity.
             </motion.p>
           </div>
 
@@ -82,7 +82,7 @@ const AboutSection = () => {
             </motion.div>
             
             <motion.p variants={itemVariants} className="text-xs font-mono uppercase tracking-widest text-gray-600">
-              Est. 2026 // Global Intelligence Node
+              Est. 2025 // Global Intelligence Node
             </motion.p>
           </div>
         </div>
