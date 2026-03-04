@@ -12,7 +12,7 @@ const MobileCTA = () => {
     if (location.pathname === "/") {
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate("/#contact");
+      navigate("/contact");
     }
   };
 

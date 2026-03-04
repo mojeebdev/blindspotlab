@@ -69,7 +69,7 @@ const SuccessState = ({ onReset }: { onReset: () => void }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Button 
             className="bg-[#4e24cf] hover:bg-[#5a2de0] text-white font-black text-[10px] uppercase tracking-[0.2em] rounded-none py-7 shadow-glow"
-            onClick={() => window.location.href = "/#contact"}
+            onClick={() => window.location.href = "/contact"}
           >
             Engage Strategist
           </Button>

@@ -88,7 +88,7 @@ const Header = () => {
                   if (window.location.pathname === "/") {
                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                   } else {
-                    navigate("/#contact");
+                    navigate("/contact");
                   }
                 }}
               >
