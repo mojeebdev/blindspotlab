@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BlindspotAuditor from "../components/BlindspotAuditor";
+import Contact from "../components/Contact"; 
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Activity, BarChart3, Binary, ChevronRight } from "lucide-react";
 
@@ -12,7 +13,6 @@ const AuditPage = () => {
       <main className="pt-32">
         {/* 1. HERO / PROTOCOL INTRO */}
         <section className="pb-24 px-6 relative overflow-hidden">
-          {/* Decorative Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -36,12 +36,12 @@ const AuditPage = () => {
           </div>
         </section>
 
-        {/* 2. THE CORE ENGINE (Embedded Component) */}
+        {/* 2. THE CORE ENGINE */}
         <section className="border-y border-white/5 bg-[#030303]">
            <BlindspotAuditor />
         </section>
 
-        {/* 3. DIAGNOSTIC PHASES (The "Science") */}
+        {/* 3. DIAGNOSTIC PHASES */}
         <section className="py-32 bg-black">
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
@@ -89,8 +89,7 @@ const AuditPage = () => {
         </section>
 
         {/* 4. UPGRADE PATH (CTA) */}
-        <section className="py-40 px-6 relative overflow-hidden bg-black">
-          {/* Glowing background accent */}
+        <section className="py-40 px-6 relative overflow-hidden bg-black border-t border-white/5">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-[#4e24cf]/10 blur-[120px] rounded-full pointer-events-none" />
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -105,8 +104,9 @@ const AuditPage = () => {
               Engage for a full-scale manual audit of your ecosystem logic.
             </p>
             
+            {/* The Link now targets #contact which is rendered below */}
             <motion.a 
-              href="/#contact"
+              href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-4 bg-[#4e24cf] text-white px-12 py-6 text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#5a2de0] transition-all shadow-[0_0_40px_rgba(78,36,207,0.3)]"
@@ -115,6 +115,9 @@ const AuditPage = () => {
             </motion.a>
           </div>
         </section>
+
+        {/* 5. CONTACT FORM SECTION */}
+        <Contact />
       </main>
 
       <Footer />

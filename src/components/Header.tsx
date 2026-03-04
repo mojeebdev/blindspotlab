@@ -50,7 +50,7 @@ const Header = () => {
                 <img src="/logo.png" alt="Blindspot Lab Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-display text-lg font-bold tracking-wider text-white uppercase">
-                BLINDSPOT<span className="text-[#4e24cf]">LABS</span>
+                BLINDSPOT<span className="text-[#4e24cf]">LAB</span>
               </span>
             </Link>
             
@@ -88,7 +88,7 @@ const Header = () => {
                   if (window.location.pathname === "/") {
                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                   } else {
-                    navigate('/#contact');
+                    navigate("/#contact");
                   }
                 }}
               >
