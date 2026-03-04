@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { ToastAction } from "@/components/ui/toast";
-import { Lock, Send, ShieldCheck, Globe } from "lucide-react";
+import { Lock, Send, ShieldCheck } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const navigate = useNavigate(); 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,17 +27,20 @@ const Contact = () => {
       });
 
       if (response.ok) {
+        
         toast({
           title: "INTAKE PROTOCOL INITIALIZED",
-          description: "Founder (@MojeebHQ) will DM you on Telegram. Verify handle to ensure secure handshake.",
-          action: (
-            <ToastAction altText="Book Call" onClick={() => window.open("https://calendly.com/Blindspotlab1/30min", "_blank")}>
-              Priority Sync
-            </ToastAction>
-          ),
-          duration: 8000,
+          description: "Handshake confirmed. Redirecting to secure terminal...",
+          duration: 3000,
         });
+        
         form.reset();
+
+        
+        setTimeout(() => {
+          navigate("/contact/success");
+        }, 1500);
+        
       } else {
         throw new Error("Form submission failed");
       }
@@ -100,22 +104,22 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-[9px] font-bold text-gray-600 uppercase tracking-widest ml-1">Identity</label>
-                  <Input name="name" placeholder="Name" required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 h-12" />
+                  <Input name="name" placeholder="Name" required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 h-12 text-white" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[9px] font-bold text-gray-600 uppercase tracking-widest ml-1">System URL</label>
-                  <Input name="project" placeholder="Project / URL" required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 h-12" />
+                  <Input name="project" placeholder="Project / URL" required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 h-12 text-white" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label className="text-[9px] font-bold text-gray-600 uppercase tracking-widest ml-1">Communication Handle</label>
-                <Input name="telegram" placeholder="Telegram (@...)" required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 h-12" />
+                <Input name="telegram" placeholder="Telegram (@...)" required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 h-12 text-white" />
               </div>
               
               <div className="space-y-2">
                 <label className="text-[9px] font-bold text-gray-600 uppercase tracking-widest ml-1">Primary Bottleneck</label>
-                <Textarea name="message" placeholder="Describe the friction you are facing..." required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 min-h-[140px] resize-none" />
+                <Textarea name="message" placeholder="Describe the friction you are facing..." required className="bg-black border-white/10 rounded-sm focus:border-[#4e24cf]/50 min-h-[140px] resize-none text-white" />
               </div>
               
               <Button type="submit" disabled={isSubmitting} className="w-full bg-[#4e24cf] text-white hover:bg-[#5a2de0] font-black py-7 uppercase tracking-[0.3em] text-[10px] transition-all rounded-sm shadow-lg shadow-[#4e24cf]/20">

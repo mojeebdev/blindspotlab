@@ -1,4 +1,4 @@
-// This is your PAGE (src/pages/About.tsx)
+
 import Header from "../components/Header";
 import AboutSection from "../components/AboutSection"; 
 import Founder from "../pages/Founder";       
