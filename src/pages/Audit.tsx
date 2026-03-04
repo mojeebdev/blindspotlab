@@ -106,7 +106,7 @@ const AuditPage = () => {
             
             {/* The Link now targets #contact which is rendered below */}
             <motion.a 
-              href="#contact"
+              href="/#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-4 bg-[#4e24cf] text-white px-12 py-6 text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#5a2de0] transition-all shadow-[0_0_40px_rgba(78,36,207,0.3)]"
