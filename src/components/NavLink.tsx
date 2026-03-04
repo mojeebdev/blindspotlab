@@ -32,7 +32,7 @@ export const Navbar = () => {
         </div>
       </Link>
       
-      {/* System Status - Keeps the "Lab" feel */}
+      
       <div className="hidden lg:flex items-center gap-8">
         <div className="flex items-center gap-2">
           <Activity size={12} className="text-[#4e24cf] animate-pulse" />
@@ -51,7 +51,7 @@ export const Navbar = () => {
         <NavLink to="/research" className={navLinkStyle}>Research</NavLink>
         <NavLink to="/signals" className={navLinkStyle}>Signals</NavLink>
         <NavLink to="/about" className={navLinkStyle}>About</NavLink>
-
+        <NavLink to="/contact" className={navLinkStyle}>Contact</NavLink>
         <Link 
           to="/audit"
           className="bg-[#4e24cf] text-white ml-2 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-[#4e24cf]/20"

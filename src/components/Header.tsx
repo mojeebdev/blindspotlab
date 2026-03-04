@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom"; 
+import { Link, useNavigate, useLocation } from "react-router-dom"; 
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-
 const navLinks = [
-  { name: "Capabilities", href: "/#capabilities", type: "anchor" },
+  { name: "Capabilities", href: "/capabilities", type: "anchor" },
   { name: "Blindspot Audit™", href: "/audit", type: "page" },
   { name: "Research", href: "/research", type: "page" },
   { name: "Signals", href: "/signals", type: "page" },
@@ -16,21 +15,36 @@ const navLinks = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLinkClick = (link: typeof navLinks[0]) => {
     setIsMenuOpen(false);
     
     if (link.type === "anchor") {
-      
-      if (window.location.pathname === "/") {
-        const element = document.querySelector(link.href.replace("/", ""));
+      if (location.pathname === "/") {
+       
+        const id = link.href.split('#')[1];
+        const element = document.getElementById(id);
         element?.scrollIntoView({ behavior: 'smooth' });
       } else {
         
         navigate(link.href);
       }
     }
-    
+  };
+
+  const handleCtaClick = () => {
+    setIsMenuOpen(false);
+    if (location.pathname === "/") {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate("/contact");
+      }
+    } else {
+      navigate("/contact");
+    }
   };
 
   return (
@@ -66,16 +80,12 @@ const Header = () => {
                         {link.name}
                       </Link>
                     ) : (
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleLinkClick(link);
-                        }}
-                        className="font-body text-xs font-bold tracking-widest uppercase text-gray-400 hover:text-white transition-colors cursor-pointer"
+                      <button
+                        onClick={() => handleLinkClick(link)}
+                        className="font-body text-xs font-bold tracking-widest uppercase text-gray-400 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0"
                       >
                         {link.name}
-                      </a>
+                      </button>
                     )}
                   </li>
                 ))}
@@ -84,13 +94,7 @@ const Header = () => {
               <Button
                 size="sm"
                 className="hidden md:inline-flex font-display text-[10px] font-black tracking-widest uppercase px-5 py-2 bg-[#4e24cf] hover:bg-[#4e24cf]/90 text-white hover:scale-105 shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all duration-300 rounded-full"
-                onClick={() => {
-                  if (window.location.pathname === "/") {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    navigate("/contact");
-                  }
-                }}
+                onClick={handleCtaClick}
               >
                 Schedule a Strategy Audit
               </Button>
@@ -141,24 +145,29 @@ const Header = () => {
                         <Link
                           to={link.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="font-display text-xl font-black tracking-tighter uppercase text-white hover:text-[#4e24cf] text-left"
+                          className="font-display text-xl font-black tracking-tighter uppercase text-white hover:text-[#4e24cf] text-left block"
                         >
                           {link.name}
                         </Link>
                       ) : (
-                        <a
-                          href={link.href}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            handleLinkClick(link);
-                          }}
-                          className="font-display text-xl font-black tracking-tighter uppercase text-white hover:text-[#4e24cf] text-left"
+                        <button
+                          onClick={() => handleLinkClick(link)}
+                          className="font-display text-xl font-black tracking-tighter uppercase text-white hover:text-[#4e24cf] text-left block w-full bg-transparent border-none p-0"
                         >
                           {link.name}
-                        </a>
+                        </button>
                       )}
                     </li>
                   ))}
+                  {/* Mobile CTA */}
+                  <li className="pt-4">
+                    <Button 
+                      className="w-full bg-[#4e24cf] text-white uppercase font-black tracking-widest text-[10px] py-6"
+                      onClick={handleCtaClick}
+                    >
+                      Audit Now
+                    </Button>
+                  </li>
                 </ul>
               </div>
             </motion.nav>
