@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BlindspotAuditor from "../components/BlindspotAuditor";
-import Contact from "../components/Contact"; 
 import { motion } from "framer-motion";
 import { ShieldCheck, Zap, Activity, BarChart3, Binary, ChevronRight } from "lucide-react";
 
@@ -116,8 +115,6 @@ const AuditPage = () => {
           </div>
         </section>
 
-        {/* 5. CONTACT FORM SECTION */}
-        <Contact />
       </main>
 
       <Footer />

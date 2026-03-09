@@ -98,7 +98,7 @@ const BlindspotAuditor = () => {
   const handleAudit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('analyzing');
-    // Simulate Lab Processing Time
+    
     setTimeout(() => {
       setStatus('success');
     }, 3000);
